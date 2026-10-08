@@ -28,7 +28,7 @@ jobs:
           aws sts get-caller-identity
 
       - name: Terraform init
-        run: terraform init -backend-config=$BACKEND_CONFIG
+        run: terraform init -input=false -reconfigure -backend-config=$BACKEND_CONFIG
 
       - name: Terraform fmt check
         run: terraform fmt -check -recursive
